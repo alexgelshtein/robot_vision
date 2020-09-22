@@ -6,6 +6,7 @@ HOST = "169.254.54.150"
 PORT = 30000 
 
 count = 0
+one_detail = 0
 
 while count < 5:
     print ("Connecting to robot")
@@ -20,7 +21,7 @@ while count < 5:
         msg = c.recv(1024)
         print ("Starting detection")
         
-        detect()
+        detect(one_detail)
 
         c.send(b"(123)")
         print("Stopping robot")

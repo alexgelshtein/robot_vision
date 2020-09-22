@@ -1,13 +1,13 @@
 import cv2.cv2 as cv2
 import numpy as np
 
-def detect():
+def detect(number):
     cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
     cap.set(cv2.CAP_PROP_FPS, 24)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-    template = cv2.imread('robot_vision/images/opencv_frame_cropped.png',0)
+    template = cv2.imread('robot_vision/images/opencv_frame_cropped_{}.png'.format(number),0)
     w, h = template.shape[::-1]
 
     while True:
@@ -18,7 +18,7 @@ def detect():
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.95
+        threshold = 0.75
 
         loc = np.where(res >= threshold)
         s = loc[0].size
