@@ -18,7 +18,7 @@ def detect(number):
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.75
+        threshold = 0.81
 
         loc = np.where(res >= threshold)
         s = loc[0].size
@@ -35,4 +35,4 @@ def detect(number):
     cap.release()
     cv2.destroyAllWindows()
 
-# detect()
+# detect(1)
