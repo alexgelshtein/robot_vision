@@ -21,7 +21,7 @@ while True:
         # SPACE pressed
         cv2.destroyAllWindows()
         x, y, w, h = map(int, input().split())
-        crop_img_name = "robot_vision/images/opencv_frame_cropped_1.png"
+        crop_img_name = "images/opencv_frame_cropped_0.png"
         crop_frame = frame[y:y+h, x:x+w]
         cv2.imwrite(crop_img_name, crop_frame)
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0,255,255), 2)

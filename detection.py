@@ -7,7 +7,7 @@ def detect(number):
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-    template = cv2.imread('robot_vision/images/opencv_frame_cropped_{}.png'.format(number),0)
+    template = cv2.imread('images/opencv_frame_cropped_{}.png'.format(number),0)
     w, h = template.shape[::-1]
 
     while True:
@@ -18,7 +18,7 @@ def detect(number):
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.81
+        threshold = 0.8
 
         loc = np.where(res >= threshold)
         s = loc[0].size
@@ -35,4 +35,4 @@ def detect(number):
     cap.release()
     cv2.destroyAllWindows()
 
-# detect(1)
+# detect(0)
