@@ -1,8 +1,8 @@
-import sys, time
-
-sys.path.append("..\\ur-interface")
-import URBasic
+import sys 
+import time
 from detection import detect
+sys.path.append('C:\\Users\\laser\\Documents\\VSCode projects\\ur-interface')
+import URBasic
 
 host = "169.254.54.9"
 
@@ -20,12 +20,9 @@ while register == False:
 rob.ur_pause()
 time.sleep(0.08)
 
-# robot.speedj([0, 0, 0, 0, 0, 0.5], 0.5, 10)
 print("Starting Detection")
 detect(0)
-robot.speedj([0, 0, 0, 0, 0, 0.5], 0.5, 5)
 
-time.sleep(0.08)
 rob.ur_play()
 time.sleep(0.08)
 rob.close()
