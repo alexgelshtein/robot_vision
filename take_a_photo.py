@@ -1,7 +1,7 @@
 import cv2.cv2 as cv2
 import numpy as np
 
-cam = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 cv2.namedWindow("test")
 

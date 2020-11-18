@@ -2,12 +2,12 @@ import cv2.cv2 as cv2
 import numpy as np
 
 def detect(number):
-    cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     cap.set(cv2.CAP_PROP_FPS, 24)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-    template = cv2.imread('images/opencv_frame_cropped_{}.png'.format(number),0)
+    template = cv2.imread('C:\\Users\\laser\\Documents\\VSCode projects\\robot_vision\\images\\opencv_frame_cropped_{}.png'.format(number),0)
     w, h = template.shape[::-1]
 
     while True:
@@ -18,7 +18,7 @@ def detect(number):
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.8
+        threshold = 0.95
 
         loc = np.where(res >= threshold)
         s = loc[0].size
@@ -34,5 +34,6 @@ def detect(number):
 
     cap.release()
     cv2.destroyAllWindows()
+    return True
 
 # detect(0)
