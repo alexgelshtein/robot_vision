@@ -1,3 +1,9 @@
+"""
+This is the main program in this folder.
+It uses the image from \images folder and detects the object
+on the output of the camera. And returns if it was a success.
+"""
+
 import cv2.cv2 as cv2
 import numpy as np
 
@@ -18,7 +24,7 @@ def detect(number):
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.95
+        threshold = 0.8
 
         loc = np.where(res >= threshold)
         s = loc[0].size

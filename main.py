@@ -1,3 +1,8 @@
+"""
+TCP/IP connection with robot to detect objects while
+it's joint rotates to find the matching part.
+"""
+
 import socket
 import time
 from detection import detect

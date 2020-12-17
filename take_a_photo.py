@@ -1,3 +1,5 @@
+# Takes a photo of the detail and crops image.
+
 import cv2.cv2 as cv2
 import numpy as np
 
@@ -21,6 +23,7 @@ while True:
         # SPACE pressed
         cv2.destroyAllWindows()
         x, y, w, h = map(int, input().split())
+        # Change the number of image if necessary.
         crop_img_name = "C:\\Users\\laser\\Documents\\VSCode projects\\robot_vision\\images\\opencv_frame_cropped_0.png"
         crop_frame = frame[y:y+h, x:x+w]
         cv2.imwrite(crop_img_name, crop_frame)

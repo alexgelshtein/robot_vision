@@ -1,3 +1,8 @@
+"""
+Similar to the main.py program, but it uses 2 images
+to detect 2 different types of detailos.
+"""
+
 import socket
 import time
 from detection import detect
