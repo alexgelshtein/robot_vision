@@ -28,13 +28,13 @@ time.sleep(0.08)
 
 # Starting program with dashboard.
 s.send('play\n'.encode())
-time.sleep(0.08)
+time.sleep(0.5)
 
 # Checks if the program is running.
 s.send('running\n'.encode())
 # FIXME: timeout might not work sometimes, so that program halts.
-time.sleep(0.6)
-data = s.recv(4096).decode().split()[-1]
+time.sleep(0.5)
+data = s.recv(2048).decode().split()[-1]
 
 # Secondary program to change register value from 111 to 400.
 secondary = """sec secondaryProgram():
@@ -55,7 +55,7 @@ while data == 'true':
     soc.close()
   s.send('running\n'.encode())
   time.sleep(0.08)
-  data = s.recv(4096).decode().split()[-1]
+  data = s.recv(2048).decode().split()[-1]
   time.sleep(0.08)
 
 s.close()

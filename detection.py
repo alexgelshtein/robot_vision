@@ -24,7 +24,7 @@ def detect(number):
             break
         
         res = cv2.matchTemplate(gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.8
+        threshold = 0.9
 
         loc = np.where(res >= threshold)
         s = loc[0].size
